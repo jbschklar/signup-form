@@ -3,8 +3,10 @@ const phoneNumberInput = document.querySelector("#phone-number");
 const submit = document.querySelector(".btn");
 const form = document.querySelector("form");
 const password = document.querySelector("#password");
-const passconfirm = document.querySelector("#pass-confirm");
+const passConfirm = document.querySelector("#pass-confirm");
 const passErrorMsg = document.querySelector(".pass-error-message");
+const phoneErrorMsg = document.querySelector(".num-error-msg");
+const submitValidation = document.querySelector(".submit-validation");
 
 phoneNumberInput.addEventListener("change", function () {
 	let number = this.value.split("");
@@ -19,8 +21,6 @@ phoneNumberInput.addEventListener("change", function () {
 
 	number = number.join("");
 
-	if (number.length < 10) {
-	}
 	let areaCode = number.slice(0, 3);
 	let first = number.slice(3, 6);
 	let last = number.slice(6, 11);
@@ -28,10 +28,31 @@ phoneNumberInput.addEventListener("change", function () {
 	this.value = newNumber;
 });
 
-form.addEventListener("submit", (e) => {
-	e.preventDefault();
-	console.log("submitted");
-	if (phoneNumberInput.value.length < 14) console.log("number too short");
-	if (password.value !== passconfirm.value)
+const formValidation = function () {
+	if (password.value !== passConfirm.value) {
 		passErrorMsg.textContent = "passwords don't match";
+		return false;
+	}
+	if (phoneNumberInput.value.length < 14) {
+		phoneErrorMsg.textContent = "Invalid Number";
+		return false;
+	}
+	passErrorMsg.textContent = "";
+	return true;
+};
+
+// passConfirm.addEventListener("change", function () {
+// 	if (password.value !== passConfirm.value) {
+// 		passConfirm.setCustomValidity("Passwords don't match!");
+// 		passErrorMsg.textContent = "passwords don't match";
+// 	}
+// });
+
+// Need to add this functionality to each input field before submit to prevent submit if invalid
+form.addEventListener("submit", (e) => {
+	if (!formValidation()) {
+		e.preventDefault();
+	} else {
+		submitValidation.textContent = "submitted";
+	}
 });

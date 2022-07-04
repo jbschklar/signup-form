@@ -13,7 +13,7 @@
 			<div class="logo"><h1>Yoga Classes</h1></div>
 		</aside>
 		<div class="form-container">
-			<form>
+			<form onsubmit="formValidation();">
 				<h1>Sign up for classes today!</h1>
 				<div class="name-input">
 					<div class="first-name">
@@ -38,6 +38,7 @@
 							id="phone-number"
 							placeholder="(555) 555-5555"
 						/>
+						<span class="num-error-msg error-msg"></span>
 					</div>
 				</div>
 				<div class="password">
@@ -48,10 +49,11 @@
 					<div class="pass-confirm">
 						<label for="pass-confirm">Confirm Password</label>
 						<input type="password" name="pass-confirm" id="pass-confirm" />
-						<span class="pass-error-message"></span>
+						<span class="pass-error-message error-msg"></span>
 					</div>
 				</div>
 				<button type="submit" class="btn">Create Account</button>
+				<span class="submit-validation"></span>
 			</form>
 			<div class="button-section">
 				<p>Already have an account? <a href="">Log in</a></p>

@@ -106,7 +106,7 @@ button {
 	border-color: green;
 }
 
-.pass-error-message {
+.error-msg {
 	color: red;
 	font-size: 0.75rem;
 }
