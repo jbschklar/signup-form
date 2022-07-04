@@ -6,13 +6,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Sign Up Form</title>
 		<link rel="stylesheet" href="style.css" />
+		<script src="/signup.js" defer></script>
 	</head>
 	<body>
 		<aside>
 			<div class="logo"><h1>Yoga Classes</h1></div>
 		</aside>
 		<div class="form-container">
-			<form action="" method="get">
+			<form>
 				<h1>Sign up for classes today!</h1>
 				<div class="name-input">
 					<div class="first-name">
@@ -31,7 +32,12 @@
 					</div>
 					<div class="number">
 						<label for="phone-number">Phone Number</label>
-						<input type="tel" name="phone-number" id="phone-number" />
+						<input
+							type="tel"
+							name="phone-number"
+							id="phone-number"
+							placeholder="(555) 555-5555"
+						/>
 					</div>
 				</div>
 				<div class="password">
@@ -42,11 +48,12 @@
 					<div class="pass-confirm">
 						<label for="pass-confirm">Confirm Password</label>
 						<input type="password" name="pass-confirm" id="pass-confirm" />
+						<span class="pass-error-message"></span>
 					</div>
 				</div>
+				<button type="submit" class="btn">Create Account</button>
 			</form>
 			<div class="button-section">
-				<button type="submit">Create Account</button>
 				<p>Already have an account? <a href="">Log in</a></p>
 			</div>
 		</div>
