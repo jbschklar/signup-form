@@ -7,13 +7,13 @@ const passConfirm = document.querySelector("#pass-confirm");
 const passErrorMsg = document.querySelector(".pass-error-message");
 const phoneErrorMsg = document.querySelector(".num-error-msg");
 const submitValidation = document.querySelector(".submit-validation");
+const requiredInputs = document.querySelectorAll(".required");
 
-phoneNumberInput.addEventListener("change", function () {
+phoneNumberInput.addEventListener("input", function () {
 	let number = this.value.split("");
 
 	for (let i = 0; i < number.length; i++) {
 		if (isNaN(number[i]) || number[i] === " ") {
-			console.log(number[i]);
 			number.splice(i, 1);
 			i--;
 		}
@@ -24,12 +24,19 @@ phoneNumberInput.addEventListener("change", function () {
 	let areaCode = number.slice(0, 3);
 	let first = number.slice(3, 6);
 	let last = number.slice(6, 11);
-	let newNumber = "(" + areaCode + ")" + " " + first + "-" + last;
+	let newNumber =
+		"(" + areaCode + ")" + " " + first + (number.length > 6 ? "-" + last : "");
 	this.value = newNumber;
 });
 
 const formValidation = function () {
-	if (password.value !== passConfirm.value) {
+	requiredInputs.forEach((input) => {
+		if (!input.value) {
+			input.nextElementSibling.textContent = "required field";
+			return false;
+		}
+	});
+	if (password.value !== passConfirm.value || !password.value) {
 		passErrorMsg.textContent = "passwords don't match";
 		return false;
 	}
@@ -37,19 +44,13 @@ const formValidation = function () {
 		phoneErrorMsg.textContent = "Invalid Number";
 		return false;
 	}
+
 	passErrorMsg.textContent = "";
 	return true;
 };
 
-// passConfirm.addEventListener("change", function () {
-// 	if (password.value !== passConfirm.value) {
-// 		passConfirm.setCustomValidity("Passwords don't match!");
-// 		passErrorMsg.textContent = "passwords don't match";
-// 	}
-// });
-
-// Need to add this functionality to each input field before submit to prevent submit if invalid
 form.addEventListener("submit", (e) => {
+	// e.preventDefault();
 	if (!formValidation()) {
 		e.preventDefault();
 	} else {

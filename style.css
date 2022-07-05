@@ -45,7 +45,7 @@ aside {
 	width: 50vw;
 }
 
-form {
+.input-container {
 	padding: 25px;
 	margin-top: 30vh;
 	margin-bottom: 24px;
@@ -53,7 +53,7 @@ form {
 	height: max(250px, 35vh);
 }
 
-form > h1 {
+h1 {
 	margin-bottom: 24px;
 }
 
@@ -106,7 +106,8 @@ button {
 	border-color: green;
 }
 
-.error-msg {
+.error-msg,
+span {
 	color: red;
 	font-size: 0.75rem;
 }

@@ -14,21 +14,30 @@
 		</aside>
 		<div class="form-container">
 			<form onsubmit="formValidation();">
+                <div class="input-container">
 				<h1>Sign up for classes today!</h1>
 				<div class="name-input">
 					<div class="first-name">
 						<label for="firstname">First Name</label>
-						<input type="text" name="firstname" id="firstname" />
+						<input
+							type="text"
+							name="firstname"
+							id="firstname"
+							class="required"
+						/>
+						<span></span>
 					</div>
 					<div class="last-name">
 						<label for="lastname">Last Name</label>
-						<input type="text" name="lastname" id="lastname" />
+						<input type="text" name="lastname" id="lastname" class="required" />
+						<span></span>
 					</div>
 				</div>
 				<div class="contact-info">
 					<div class="email">
 						<label for="email">Email</label>
-						<input type="email" name="email" id="email" />
+						<input type="email" name="email" id="email" class="required" />
+						<span></span>
 					</div>
 					<div class="number">
 						<label for="phone-number">Phone Number</label>
@@ -37,6 +46,7 @@
 							name="phone-number"
 							id="phone-number"
 							placeholder="(555) 555-5555"
+							class="required"
 						/>
 						<span class="num-error-msg error-msg"></span>
 					</div>
@@ -44,7 +54,13 @@
 				<div class="password">
 					<div class="pass-init">
 						<label for="password">Password</label>
-						<input type="password" name="password" id="password" />
+						<input
+							type="password"
+							name="password"
+							id="password"
+							class="required"
+						/>
+						<span></span>
 					</div>
 					<div class="pass-confirm">
 						<label for="pass-confirm">Confirm Password</label>
@@ -52,11 +68,12 @@
 						<span class="pass-error-message error-msg"></span>
 					</div>
 				</div>
-				<button type="submit" class="btn">Create Account</button>
-				<span class="submit-validation"></span>
+            </div>
+                <div class="button-section">
+                    <button type="submit" class="btn">Create Account</button>
+                    <span class="submit-validation"></span>
+                    <p>Already have an account? <a href="">Log in</a></p>
 			</form>
-			<div class="button-section">
-				<p>Already have an account? <a href="">Log in</a></p>
 			</div>
 		</div>
 	</body>
