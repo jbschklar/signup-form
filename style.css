@@ -1,7 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
-	--aside-width: 25vw;
+	--aside-width: max(25vw);
 }
 
 @font-face {
@@ -42,7 +42,7 @@ aside {
 .form-container {
 	background-color: whitesmoke;
 	height: 100vh;
-	width: 50vw;
+	width: max(500px, 50vw);
 }
 
 .input-container {
@@ -50,7 +50,7 @@ aside {
 	margin-top: 30vh;
 	margin-bottom: 24px;
 	box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.177);
-	height: max(250px, 35vh);
+	height: max(350px, 35vh);
 }
 
 h1 {
@@ -98,16 +98,25 @@ button {
 	font-size: 0.75rem;
 }
 
-:invalid {
+/* :invalid {
 	border-color: red;
-}
+} */
 
-:valid {
+/* :valid {
 	border-color: green;
-}
+} */
 
 .error-msg,
-span {
+span,
+ul {
 	color: red;
 	font-size: 0.75rem;
+}
+
+li {
+	list-style: none;
+}
+
+input {
+	width: min(150px);
 }
