@@ -50,7 +50,7 @@ aside {
 	margin-top: 30vh;
 	margin-bottom: 24px;
 	box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.177);
-	height: max(350px, 35vh);
+	height: max(300px, 35vh);
 }
 
 h1 {

@@ -60,7 +60,7 @@ const formValidation = function () {
 		listEl.innerHTML = "";
 	}
 
-	if (password.value !== passConfirm.value || !password.value) {
+	if (password.value !== passConfirm.value) {
 		passErrorMsg.textContent = "passwords don't match";
 		return false;
 	} else {
@@ -77,7 +77,7 @@ const formValidation = function () {
 };
 
 form.addEventListener("submit", (e) => {
-	e.preventDefault();
+	// e.preventDefault();
 	if (!formValidation()) {
 		e.preventDefault();
 	} else {
