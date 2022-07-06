@@ -20,13 +20,20 @@ aside {
 	font-family: samarkan;
 	color: white;
 	font-size: 2rem;
-	background-image: url(/images/joshuva-daniel-U4OS-GimdXA-unsplash.jpg);
+	background-image: url(https://jbschklar.github.io/signup-form/images/joshuva-daniel-U4OS-GimdXA-unsplash.jpg);
 	background-size: 1500px;
 	background-repeat: no-repeat;
 	height: 100vh;
 	width: var(--aside-width);
 }
 
+aside > footer {
+	font-family: sans-serif;
+	font-size: 0.7rem;
+	position: absolute;
+	bottom: 0px;
+	margin-left: 60px;
+}
 .logo {
 	display: flex;
 	justify-content: center;
