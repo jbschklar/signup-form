@@ -1,6 +1,5 @@
 "use strict";
 const phoneNumberInput = document.querySelector("#phone-number");
-const submit = document.querySelector(".btn");
 const form = document.querySelector("form");
 const password = document.querySelector("#password");
 const passConfirm = document.querySelector("#pass-confirm");
@@ -8,7 +7,6 @@ const passErrorMsg = document.querySelector(".pass-error-message");
 const phoneErrorMsg = document.querySelector(".num-error-msg");
 const submitValidation = document.querySelector(".submit-validation");
 const requiredInputs = document.querySelectorAll(".required");
-let submitted = false;
 const listEl = document.createElement("ul");
 
 // Function to auto format phone number as it's entered
@@ -55,16 +53,20 @@ const formValidation = function () {
 	if (!passwordTest || password.value.length < 8) {
 		listEl.innerHTML = `<li>Password must contain</li><li>at least 8 characters</li><li>at least one special character</li><li>(! @ # $ % & *)</li>`;
 		password.insertAdjacentElement("afterend", listEl);
+		password.classList.add("error");
 		return false;
 	} else {
 		listEl.innerHTML = "";
+		password.classList.remove("error");
 	}
 
 	if (password.value !== passConfirm.value) {
-		passErrorMsg.textContent = "passwords don't match";
+		passErrorMsg.textContent = "Passwords don't match";
+		passConfirm.classList.add("error");
 		return false;
 	} else {
 		passErrorMsg.textContent = "";
+		passConfirm.classList.remove("error");
 	}
 
 	if (phoneNumberInput.value.length < 14) {
